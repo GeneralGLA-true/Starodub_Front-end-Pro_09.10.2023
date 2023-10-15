@@ -27,11 +27,18 @@ alert(sepStr); */
 
 /////////////////////////////////////// homework 4
 
-const a = +prompt("Введіть число A", 5);
+/* const a = +prompt("Введіть число A", 5);
 const b = +prompt("Введіть число B", 5);
 
 alert(`
   ${a} + ${b} = ${a + b}
   ${a} - ${b} = ${a - b}
   ${a} * ${b} = ${a * b}
-  ${a} / ${b} = ${a / b}`);
+  ${a} / ${b} = ${a / b}`); */
+
+
+  //////////////////////////////////  homework 5
+
+const hours = prompt("Вкажіть кількість годин", 24);
+const seconds = hours * 60;
+alert(`У ${hours} годинах ${seconds} секунд`);
