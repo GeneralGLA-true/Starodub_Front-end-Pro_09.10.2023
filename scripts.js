@@ -39,6 +39,6 @@ alert(`
 
   //////////////////////////////////  homework 5
 
-const hours = prompt("Вкажіть кількість годин", 24);
+/* const hours = prompt("Вкажіть кількість годин", 24);
 const seconds = hours * 3600;
-alert(`У ${hours} годинах ${seconds} секунд`);
+alert(`У ${hours} годинах ${seconds} секунд`); */
