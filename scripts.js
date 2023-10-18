@@ -46,7 +46,7 @@ alert(`У ${hours} годинах ${seconds} секунд`); */
 
 //////////////////////////////////    homework 6
 
-const user = {};
+/* const user = {};
 const capital = "Київ" || "Лондон" || "Вашингтон";
 const currentYear = 2023;
 let age = '';
@@ -75,7 +75,7 @@ if (user.birthYear) {
   age = `Тобі ${currentYear - user.birthYear} рочків`;
 } else {
   age = 'Розтин покаже твій вік';
-}
+} */
 
 /* console.log(typeof user.cityResidense)
 console.log(user.cityResidense === String)
@@ -95,7 +95,7 @@ switch (user.cityResidense) {
 } */
 
 
-if (user.cityResidense === capital) {
+/* if (user.cityResidense === capital) {
   locationUser = `Ти живеш у столиці ${user.cityResidense}`;
 } else if (user.cityResidense === null){
   locationUser = 'Тобі все одно не сховатись...';
@@ -126,4 +126,26 @@ alert(`
 ${age},
 ${locationUser};
 ${sportLog};
-`)
+`) */
+
+/////////////////////////////////// homework 7
+
+let numOrStr = prompt('input number or string');
+
+switch (true) {
+  case numOrStr === null:
+    console.log('ви скасували')
+    break;
+
+  case numOrStr === '':
+    console.log('Empty String');
+    break;
+
+  case isNaN( +numOrStr ):
+    console.log('number is Ba_NaN');
+    break;
+
+  default:
+    console.log('OK!')
+    break;
+}
