@@ -46,7 +46,7 @@ alert(`У ${hours} годинах ${seconds} секунд`); */
 
 //////////////////////////////////    homework 6
 
-/* const user = {};
+const user = {};
 const capital = "Київ" || "Лондон" || "Вашингтон";
 const currentYear = 2023;
 let age = '';
@@ -57,52 +57,39 @@ user.birthYear = prompt(`Вкажіть рік народження`, 1995);
 user.cityResidense = prompt(`Вкажіть місто проживання`, 'Харків');
 user.favoriteSport = prompt(`Вкажіть улюблений вид спорту`, 'Лакрос');
 
-switch (null) {
-  case user.birthYear:
-    alert('Шкода, що Ви не захотіли ввести свій рік народження');
-      
-  case user.cityResidense:
-    alert('Шкода, що Ви не захотіли ввести свіє місто');
-   
-  case user.favoriteSport:
-    alert('Шкода, що Ви не захотіли ввести свій улюблений вид спорту');
-      
-  default:
-    break;
+if (user.birthYear === null) {
+  alert('Шкода, що Ви не захотіли ввести свій рік народження');
+}
+
+if (user.cityResidense === null) {
+  alert('Шкода, що Ви не захотіли ввести свіє місто');
+}
+
+if (user.favoriteSport === null) {
+  alert('Шкода, що Ви не захотіли ввести свій улюблений вид спорту');
 }
 
 if (user.birthYear) {
   age = `Тобі ${currentYear - user.birthYear} рочків`;
 } else {
   age = 'Розтин покаже твій вік';
-} */
+}
 
-/* console.log(typeof user.cityResidense)
-console.log(user.cityResidense === String)
-switch (user.cityResidense) {
+switch (true) {
 
-  case capital:
+  case user.cityResidense === capital:
     locationUser = `Ти живеш у столиці ${user.cityResidense}`;
     break;
 
-  case ??????????:
-    locationUser = `Ти живеш у місті ${user.cityResidense}`;
+  case user.cityResidense === null:
+    locationUser = 'Тобі все одно не сховатись...';
     break;
 
   default:
-    locationUser = 'Тобі все одно не сховатись...';
+    locationUser = `Ти живеш у місті ${user.cityResidense}`;
     break;
-} */
-
-
-/* if (user.cityResidense === capital) {
-  locationUser = `Ти живеш у столиці ${user.cityResidense}`;
-} else if (user.cityResidense === null){
-  locationUser = 'Тобі все одно не сховатись...';
-} else {
-  locationUser = `Ти живеш у місті ${user.cityResidense}`;
 }
-
+console.log(user.favoriteSport)
 switch (user.favoriteSport) {
   case 'Лакрос':
   sportLog = 'Круто! Хочеш стати Полом Рабілем?';
@@ -115,8 +102,11 @@ switch (user.favoriteSport) {
   case 'Текбол':
     sportLog = 'Круто! Хочеш стати Адамом Блажовичем?'; 
     break;
+
   case null:
     sportLog = 'Кімнатна людинка?';
+    break;
+
   default:
     sportLog = 'Цікаво...'; 
     break;
@@ -126,11 +116,11 @@ alert(`
 ${age},
 ${locationUser};
 ${sportLog};
-`) */
+`)
 
 /////////////////////////////////// homework 7
 
-let numOrStr = prompt('input number or string');
+/* let numOrStr = prompt('input number or string');
 
 switch (true) {
   case numOrStr === null:
@@ -148,4 +138,4 @@ switch (true) {
   default:
     console.log('OK!')
     break;
-}
+} */
