@@ -46,7 +46,7 @@ alert(`У ${hours} годинах ${seconds} секунд`); */
 
 //////////////////////////////////    homework 6
 
-const user = {};
+/* const user = {};
 const capital = "Київ" || "Лондон" || "Вашингтон";
 const currentYear = 2023;
 let age = '';
@@ -116,18 +116,18 @@ alert(`
 ${age},
 ${locationUser};
 ${sportLog};
-`)
+`) */
 
 /////////////////////////////////// homework 7
-
-/* let numOrStr = prompt('input number or string');
+/* 
+let numOrStr = prompt('input number or string');
 
 switch (true) {
   case numOrStr === null:
     console.log('ви скасували')
     break;
 
-  case numOrStr === '':
+  case numOrStr.trim() === '':
     console.log('Empty String');
     break;
 
@@ -138,4 +138,151 @@ switch (true) {
   default:
     console.log('OK!')
     break;
-} */
+}
+
+ */
+////////////////////////////////   homework 8
+
+
+//// 1 пункт
+
+const max = 20;
+
+for (let a = 10; a <= max; a++) {
+
+ if (a != max) {
+  document.write (a + ',');
+ } else {
+  document.write (a);
+ }
+}
+
+//// 2 пункт
+const max = 20;
+
+for (let a = 10; a <= max; a++) {
+
+ if (a != max) {
+  document.write (a * a + ',');
+ } else {
+   document.write (a * a);
+  }
+}
+
+//// 3 пункт
+
+let a = 7;
+let b = 1;
+const max = 10;
+
+for (; b <=max; b++) { 
+ document.write('<p>' + a + '*' + b + '=' + a*b);
+} 
+
+//// 4 пункт 
+
+let a = 1;
+let b = 0;
+const max = 15;
+
+for (; a <=max; a++) {
+ b += a;
+}
+
+document.write(b);
+
+//// 5 пункт
+
+let a = 15;
+let b = 1;
+const max = 35;
+
+for (; a <=max; a++) {
+ b *= a;
+}
+
+document.write(b);
+
+//// 6 пункт
+
+let a = 1;
+let b = 0;
+const max = 500;
+
+for (; a <=max; a++) {
+   b += a;
+}
+
+document.write(b/max);
+
+//// 7 пункт 
+
+let a = 30;
+let b = 0;
+const max = 80;
+
+for (; a <=max; a++)
+ if (a % 2 == 0) {
+  b += a;
+ }
+
+document.write(b);
+
+//// 8 пункт 
+
+let a = 100;
+const max = 200;
+
+for (; a <= max; a++) {
+ if (a % 3 == 0) {
+  document.write (a + ' ');
+ }
+}
+
+/// 9-11 пункти
+
+let a = +prompt('Введіть натуральне число');
+
+switch (true) {
+
+ case (a === false || a < 1):
+ alert('Невірно');
+ break;
+
+ default: alert('Прийнятно');
+ console.log(a);
+}
+
+let b = 1;
+let c = 0;
+let summa = 0;
+
+for (b, c; b <= a; b++) {
+
+ if (a % b == 0) {
+  document.write (b + " ");
+  
+  if (b % 2 == 0) {
+   c++;
+   summa += b;
+  }
+ }
+}
+
+document.write('<p> '+ c +' ' + 
+       '<p> '+ summa +' '
+       );
+
+//// 12 пункт 
+
+let a = 1;
+let b = 1;
+let c = 0;
+const max = 10;
+
+for (a = 1; a <= max; a++){
+ for (b =1; b <= max; b++){
+  c = a * b;
+  document.write('<p>' + a + '*' + b + '=' + c);
+ }
+}
