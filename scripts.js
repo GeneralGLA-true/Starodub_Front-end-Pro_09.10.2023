@@ -146,7 +146,7 @@ switch (true) {
 
 //// 1 пункт
 
-const max = 20;
+/* const max = 20;
 
 for (let a = 10; a <= max; a++) {
 
@@ -156,9 +156,9 @@ for (let a = 10; a <= max; a++) {
   document.write (a);
  }
 }
-
+ */
 //// 2 пункт
-const max = 20;
+/* const max = 20;
 
 for (let a = 10; a <= max; a++) {
 
@@ -167,21 +167,21 @@ for (let a = 10; a <= max; a++) {
  } else {
    document.write (a * a);
   }
-}
+} */
 
 //// 3 пункт
 
-let a = 7;
+/* let a = 7;
 let b = 1;
 const max = 10;
 
 for (; b <=max; b++) { 
  document.write('<p>' + a + '*' + b + '=' + a*b);
-} 
+}  */
 
 //// 4 пункт 
 
-let a = 1;
+/* let a = 1;
 let b = 0;
 const max = 15;
 
@@ -189,9 +189,9 @@ for (; a <=max; a++) {
  b += a;
 }
 
-document.write(b);
+document.write(b); */
 
-//// 5 пункт
+/* //// 5 пункт
 
 let a = 15;
 let b = 1;
@@ -201,11 +201,11 @@ for (; a <=max; a++) {
  b *= a;
 }
 
-document.write(b);
+document.write(b); */
 
 //// 6 пункт
 
-let a = 1;
+/* let a = 1;
 let b = 0;
 const max = 500;
 
@@ -213,11 +213,11 @@ for (; a <=max; a++) {
    b += a;
 }
 
-document.write(b/max);
+document.write(b/max); */
 
 //// 7 пункт 
 
-let a = 30;
+/* let a = 30;
 let b = 0;
 const max = 80;
 
@@ -226,22 +226,22 @@ for (; a <=max; a++)
   b += a;
  }
 
-document.write(b);
+document.write(b); */
 
 //// 8 пункт 
 
-let a = 100;
+/* let a = 100;
 const max = 200;
 
 for (; a <= max; a++) {
  if (a % 3 == 0) {
   document.write (a + ' ');
  }
-}
+} */
 
 /// 9-11 пункти
 
-let a = +prompt('Введіть натуральне число');
+/* let a = +prompt('Введіть натуральне число');
 
 switch (true) {
 
@@ -257,7 +257,7 @@ let b = 1;
 let c = 0;
 let summa = 0;
 
-for (b, c; b <= a; b++) {
+for (; b <= a; b++) {
 
  if (a % b == 0) {
   document.write (b + " ");
@@ -271,13 +271,11 @@ for (b, c; b <= a; b++) {
 
 document.write('<p> '+ c +' ' + 
        '<p> '+ summa +' '
-       );
+       ); */
 
 //// 12 пункт 
 
-let a = 1;
-let b = 1;
-let c = 0;
+/*let c = 0;
 const max = 10;
 
 for (a = 1; a <= max; a++){
@@ -285,4 +283,37 @@ for (a = 1; a <= max; a++){
   c = a * b;
   document.write('<p>' + a + '*' + b + '=' + c);
  }
-}
+} */
+
+//////////////////////////// homework 9
+
+function arraySort(a,b){
+  return a-b;
+};
+
+const array = [];
+let userLength = +prompt('Введіть довжину масиву');
+console.log(isNaN(userLength))
+console.log(userLength)
+if (userLength == false || isNaN(userLength) ) {
+  alert('Довжина позначається цифрою!')
+} else {
+    array.length = userLength;
+    let i = 0;
+
+    do {
+      array[i] = +prompt('введіть число');
+      if (isNaN(array[i]) || array[i] == false){
+        continue;
+      };
+      i++;
+  } while (i < array.length);
+};
+
+console.log('array ', array);
+
+array.sort(arraySort);
+console.log('array ', array);
+
+array.splice(1, 3);
+console.log('array ', array);
