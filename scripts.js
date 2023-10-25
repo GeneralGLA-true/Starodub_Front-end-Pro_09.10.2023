@@ -287,14 +287,13 @@ for (a = 1; a <= max; a++){
 
 //////////////////////////// homework 9
 
-function arraySort(a,b){
+/* function arraySort(a,b){
   return a-b;
 };
 
 const array = [];
-let userLength = +prompt('Введіть довжину масиву');
-console.log(isNaN(userLength))
-console.log(userLength)
+const userLength = +prompt('Введіть довжину масиву');
+
 if (userLength == false || isNaN(userLength) ) {
   alert('Довжина позначається цифрою!')
 } else {
@@ -316,4 +315,84 @@ array.sort(arraySort);
 console.log('array ', array);
 
 array.splice(1, 3);
-console.log('array ', array);
+console.log('array ', array); */
+
+
+/////////////////////////////  homework 10
+
+let array = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+console.log(array);
+
+function sum (a, b) {
+  return a + b;
+};
+
+function multiplicator (a, b) {
+  return a * b;
+};
+
+function resetToZero (item) {
+  if (item != max){
+    return item = 0;
+  } else {
+    return item = max;
+  }
+};
+
+///Знайти суму та кількість позитивних елементів.
+
+const positArray = array.filter(function (item){return item > 0});
+const sumPositiveElements = positArray.reduce(sum);
+console.log(`1. Сума позитивних елементів = ${sumPositiveElements}, а їх кількість у масиві = ${positArray.length}.`);
+
+/// Знайти мінімальний елемент масиву та його порядковий номер. Знайти максимальний елемент масиву та його порядковий номер.
+
+function arraySort(a,b){
+  return a-b;
+};
+const arrayCopy = array.slice();
+arrayCopy.sort(arraySort);
+const min = arrayCopy[0];
+const max = arrayCopy[arrayCopy.length - 1];
+const minIndex = array.indexOf(min);
+const maxIndex = array.indexOf(max);
+
+console.log(`2. Мінімальний елемент масиву ${min} та його порядковий номер ${minIndex}. Максимальний елемент масиву ${max} та його порядковий номер ${maxIndex}.`);
+
+/// Визначити кількість негативних елементів
+
+const negativeArray = array.filter(function (item){return item < 0});
+console.log(`3. Кількість негативних елементів = ${negativeArray.length}.`);
+
+/// Знайти кількість непарних позитивних елементів
+
+const unpairedPositiveElement = positArray.filter(function (item) {return item % 2 != 0});
+console.log(`4. Кількість непарних позитивних елементів = ${unpairedPositiveElement.length}.`);
+
+/// Знайти кількість парних позитивних елементів.
+
+const doublesPositiveElements = positArray.filter(function (item){return item % 2 === 0});
+console.log(`5. Кількість парних позитивних елементів = ${doublesPositiveElements.length}.`);
+
+/// Знайти суму парних позитивних елементів.
+
+const sumDoubledElements = doublesPositiveElements.reduce(sum);
+console.log(`6. Сума парних елементів масиву = ${sumDoubledElements}.`);
+
+/// Знайти суму непарних позитивних елементів.
+
+const sumUnpairedElem = unpairedPositiveElement.reduce(sum);
+console.log(`7. Сума непарних позитивних елементів = ${sumUnpairedElem}.`);
+
+/// Знайти добуток позитивних елементів.
+
+const mulPositiceElements = positArray.reduce(multiplicator);
+console.log(`8. Добуток позитивних елементів = ${mulPositiceElements}.`);
+
+/// Знайти найбільший серед елементів масиву, ост альні обнулити.
+
+const newArray = array.map(resetToZero);
+array = newArray;
+console.log(array);
+
+
