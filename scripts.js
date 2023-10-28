@@ -319,7 +319,7 @@ console.log('array ', array); */
 
 
 /////////////////////////////  homework 10
-
+/* 
 let array = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
 console.log(array);
 
@@ -393,6 +393,19 @@ console.log(`8. Добуток позитивних елементів = ${mulPo
 
 const newArray = array.map(resetToZero);
 array = newArray;
+console.log(array); */
+
+
+/////////////////////////////   хомеворке 11
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'qwer', 'rewq'];
 console.log(array);
 
+function removeElement(arr, element) {
+  const indexForDelete = arr.indexOf(element);
+  arr.splice(indexForDelete, 1);  
+};
+
+removeElement(array, 'qwer');
+console.log(array);
 
