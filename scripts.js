@@ -398,7 +398,7 @@ console.log(array); */
 
 /////////////////////////////   хомеворке 11
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'qwer', 'rewq'];
+/* const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'qwer', 'rewq'];
 console.log(array);
 
 function removeElement(arr, element) {
@@ -407,5 +407,22 @@ function removeElement(arr, element) {
 };
 
 removeElement(array, 'qwer');
-console.log(array);
+console.log(array); */
 
+
+////////////////////////// homework 12
+
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+const letPassLength = +prompt('Введіть довжину ключа');
+
+function generateKey(length, symbols) {
+  let pass = new String;
+  for (let i = 0; i < length; i++) {
+    pass += symbols.charAt(Math.random() * symbols.length);
+   }
+  
+  return pass;
+}
+
+const key = generateKey(letPassLength, characters);
+console.log(key);
