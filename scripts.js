@@ -412,7 +412,7 @@ console.log(array); */
 
 ////////////////////////// homework 12
 
-const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+/* const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
 const letPassLength = +prompt('Введіть довжину ключа');
 
 function generateKey(length, symbols) {
@@ -425,4 +425,4 @@ function generateKey(length, symbols) {
 }
 
 const key = generateKey(letPassLength, characters);
-console.log(key);
+console.log(key); */
