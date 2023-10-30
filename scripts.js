@@ -426,3 +426,113 @@ function generateKey(length, symbols) {
 
 const key = generateKey(letPassLength, characters);
 console.log(key); */
+
+
+
+////////////// homework 13
+
+////////////  1 пункт
+
+const mass = [1, 2, 3, 4, 'a', 'b', 5, 6, 'c', 'q', 6, 3];
+console.log(mass);
+
+function averageMass (array) {
+ let sum = 0;
+ let j = 0;
+ let average = 0;
+
+ for (let i = 0; i < array.length; i++) {
+ 
+  if (isNaN(array[i]) != true) {
+   sum += array[i];
+   j++;
+  }
+ }
+ 
+ return average = sum / j;
+}
+
+res = averageMass(mass);
+console.log(res);
+
+///// 2 пункт
+
+let x = +prompt('Введіть x');
+let znak = prompt('Введіть знак');
+let y = +prompt('Введіть y');
+
+function doMath(x, znak, y) {
+
+ let value = 0;
+
+ switch (znak) {
+  case '+':
+   value = x + y;
+   break;
+  case '-':
+   value = x - y;
+   break;
+  case '/':
+   value = x / y;
+   break;
+  case '*':
+   value = x * y;
+   break;
+  case '^':
+   value = x ** y;
+   break;
+  case '%':
+   value = x % y;
+   break;
+  default:
+   alert('щось пішло не так(')
+   break;
+ }
+ return value;
+}
+
+val = doMath(3, '^', 3);
+alert(val);
+
+////// 3 пункт
+
+function manualArrayCreation () {
+ let mass = [];
+ let massLenght = +prompt('Введіть довжину масиву');
+ let mass2Lenght = +prompt('Введіть довжину другорядного масиву');
+
+ for (let i = 0; i < massLenght; i++) {
+  mass[i] = new Array (mass2Lenght);
+ 
+  for (let j = 0; j < mass2Lenght; j++) {
+   mass[i][j] = prompt('Введіть знаечення масиву' + ' ' + (i + 1));
+  }
+ }
+ return mass;
+}
+
+let array = manualArrayCreation();
+console.log(array);
+
+////// 4 пункт
+
+let somethingString = 'Hello world';
+console.log(somethingString);
+let massive = ['l', 'd'];
+console.log(massive);
+
+function removeChar (someString, mass) {
+ for (let i = 0; i < mass.length; i++){
+  for (let j = 0; j < someString.length; j++) {
+   if (mass[i] === someString.charAt(j)) {
+    someString = someString.replace(mass[i], '');
+    j--;
+   }
+  }
+ 
+ } 
+return someString;
+}
+
+somethingString = removeChar(somethingString, massive);
+console.log(somethingString);
