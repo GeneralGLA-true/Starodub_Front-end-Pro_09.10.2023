@@ -439,7 +439,7 @@ console.log(mass);
 function averageMass (array) {
  let sum = 0;
  let j = 0;
- const average = 0;
+ let average = 0;
 
  for (let i = 0; i < array.length; i++) {
  
@@ -514,7 +514,7 @@ console.log(array); */
 
 ////// 4 пункт
 
-let somethingString = 'Hello world';
+/* let somethingString = 'Hello world';
 console.log(somethingString);
 const massive = ['l', 'd'];
 console.log(massive);
@@ -533,4 +533,4 @@ return someString;
 }
 
 somethingString = removeChar(somethingString, massive);
-console.log(somethingString);
+console.log(somethingString); */
