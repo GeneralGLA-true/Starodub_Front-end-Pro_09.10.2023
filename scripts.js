@@ -534,3 +534,19 @@ return someString;
 
 somethingString = removeChar(somethingString, massive);
 console.log(somethingString); */
+
+///////////////// homework 14 
+
+function getSumFunc () {
+  let value = 0;
+  return function (b) {
+    return value += b;
+  }
+}
+
+let sum = getSumFunc();
+res = sum(10);
+console.log(res);
+
+res = sum(15);
+console.log(res);
