@@ -551,7 +551,7 @@ console.log(sum(15)); */
 
 //////////////////// homework 15 
 
-class Human {
+/* class Human {
   constructor (name, sex) {
     this.name = name;
     this.sex = sex;
@@ -626,5 +626,5 @@ console.log(house);
 
 const house2 = new House (3);
 house2.addApartment(apart3, apart4, apart5);
-console.log(house2);
+console.log(house2); */
 
