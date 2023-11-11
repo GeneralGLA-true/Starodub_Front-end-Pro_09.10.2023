@@ -545,8 +545,6 @@ function getSumFunc () {
 }
 
 let sum = getSumFunc();
-res = sum(10);
-console.log(res);
 
-res = sum(15);
-console.log(res);
+console.log(sum(10));
+console.log(sum(15));
