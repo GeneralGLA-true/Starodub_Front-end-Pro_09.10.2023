@@ -537,7 +537,7 @@ console.log(somethingString); */
 
 ///////////////// homework 14 
 
-function getSumFunc () {
+/* function getSumFunc () {
   let value = 0;
   return function (b) {
     return value += b;
@@ -547,4 +547,84 @@ function getSumFunc () {
 let sum = getSumFunc();
 
 console.log(sum(10));
-console.log(sum(15));
+console.log(sum(15)); */
+
+//////////////////// homework 15 
+
+class Human {
+  constructor (name, sex) {
+    this.name = name;
+    this.sex = sex;
+  };
+};
+
+class Apartment {
+  dwellers = [];
+
+  addDweller () {
+    for (let i = 0; i < arguments.length; i++) {
+    this.dwellers.push(arguments[i]);
+  }
+  };
+};
+
+class House {
+  apartments = [];
+  
+  constructor (capacity) {
+    this.maxCapacity = capacity;
+  };
+
+  addApartment () {
+    for (let i = 0; i < arguments.length; i++) {
+      if (this.apartments.length < this.maxCapacity) {
+        this.apartments.push(arguments[i]);
+      } else {
+        console.log('This house is full!');
+        break;
+        };
+    };
+  };
+};
+
+const human = new Human('Alex', 'male');
+const human1 = new Human('Mia', 'female');
+const human2 = new Human('Stepan', 'male');
+const human3 = new Human('Masha', 'female');
+const human4 = new Human('Igor', 'male');
+const human5 = new Human('Anna', 'female');
+const human6 = new Human('Valera', 'male');
+const human7 = new Human('Kate', 'female');
+const human8 = new Human('Ronald', 'male');
+const human9 = new Human('Alex', 'female');
+
+console.log(human, human1, human2, human3, human4, human5, human6, human7, human8, human9);
+
+const apart = new Apartment;
+apart.addDweller(human, human1);
+console.log(apart);
+
+const apart2 = new Apartment;
+apart2.addDweller(human2, human3);
+console.log(apart2);
+
+const apart3 = new Apartment;
+apart3.addDweller(human4, human5);
+console.log(apart3);
+
+const apart4 = new Apartment;
+apart4.addDweller(human6, human7);
+console.log(apart4);
+
+const apart5 = new Apartment;
+apart5.addDweller(human8, human9);
+console.log(apart5);
+
+const house = new House (2);
+house.addApartment(apart, apart2, apart3);
+console.log(house);
+
+const house2 = new House (3);
+house2.addApartment(apart3, apart4, apart5);
+console.log(house2);
+
