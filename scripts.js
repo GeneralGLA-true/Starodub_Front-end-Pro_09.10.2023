@@ -596,7 +596,7 @@ const human5 = new Human('Anna', 'female');
 const human6 = new Human('Valera', 'male');
 const human7 = new Human('Kate', 'female');
 const human8 = new Human('Ronald', 'male');
-const human9 = new Human('Alex', 'female');
+const human9 = new Human('Alexia', 'female');
 
 console.log(human, human1, human2, human3, human4, human5, human6, human7, human8, human9);
 
@@ -627,4 +627,71 @@ console.log(house);
 const house2 = new House (3);
 house2.addApartment(apart3, apart4, apart5);
 console.log(house2); */
+
+///////////////// homework 16 
+
+class Human {
+  constructor (name, age) {
+    this.name = name;
+    this.age = age;
+  };
+
+  consInfo () {
+    console.log(`ім'я - ${this.name}, вік - ${this.age}.`);
+  };
+};
+
+class Car {
+  
+  constructor (manuf, model, year) {
+    this.manufacturer = manuf;
+    this.model = model;
+    this.release = year;
+  }
+
+  assignOwner (human) {
+    const adult = 18;
+    if (human.age >= adult) {
+      this.owner = human;
+    } else {
+      console.log('Вік власнима має бути більше 18!')
+    };
+  };
+
+  constInfo () {
+    console.log(`виробник - ${this.manufacturer}, модель - ${this.model}, рік випуску - ${this.release}`);
+    if (this.owner)
+    this.owner.consInfo();
+    
+  }
+}
+const human = new Human ('Petro', 28);
+console.log(human);
+human.consInfo();
+
+const human2 = new Human ('Igor', 16);
+console.log(human2);
+human2.consInfo();
+
+const human3 = new Human ('Alex', 38);
+console.log(human3);
+human3.consInfo();
+
+
+
+const car = new Car ('BMW', '328', '2014');
+car.assignOwner(human);
+console.log(car, '----------------- car')
+car.constInfo();
+
+const car2 = new Car ('Nissan', 'Juke', '2014');
+car2.assignOwner(human2);
+console.log(car2, '------------  car2');
+car2.constInfo();
+
+const car3 = new Car ('Fiat', '500', '2018');
+car3.assignOwner(human3);
+console.log(car3, '-------------- car3');
+car3.constInfo();
+
 
