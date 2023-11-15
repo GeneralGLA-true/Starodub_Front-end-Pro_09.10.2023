@@ -630,7 +630,7 @@ console.log(house2); */
 
 ///////////////// homework 16 
 
-class Human {
+/* class Human {
   constructor (name, age) {
     this.name = name;
     this.age = age;
@@ -692,6 +692,92 @@ car2.constInfo();
 const car3 = new Car ('Fiat', '500', '2018');
 car3.assignOwner(human3);
 console.log(car3, '-------------- car3');
-car3.constInfo();
+car3.constInfo(); */
 
 
+/////////////////////// homework 17
+
+class Student {
+  constructor (name, lastName, year) {
+    this.name = name;
+    this['last name'] = lastName;
+    this['year of birth'] = year;
+  };
+
+  visiting = new Array (25);
+  rating = new Array;
+
+  get studentAge () {
+    const currentYear = 2023;
+    console.log('Вік студента', currentYear - this["year of birth"]);
+  }
+
+  lessons = 0;
+  visitingLessons = 0;
+
+  present (score) {
+    if (this.lessons < 25) {
+    this.visiting[this.lessons] = true;
+    this.rating.push(score);
+    this.lessons++;
+    this.visitingLessons++;
+    return this;
+    } else {
+      console.log('Студент відвідав всі заняття!');
+    }
+  };
+
+  absent () {
+    if (this.lessons < 25) {
+    this.visiting[this.lessons] = false;
+    this.lessons++;
+    return this;
+    } else {
+      console.log('Студент відвідав всі заняття!');
+    }
+  };
+
+  summary () {
+    let averageScore = 0;
+    let averageVisiting = this.visitingLessons/this.lessons;
+
+    for (let i = 0, sum = 0; i < this.rating.length; i++) {
+      sum += this.rating[i];
+      averageScore = sum / this.rating.length;
+    }
+
+    switch (true) {
+      case averageScore > 90 && averageVisiting > 0.9:
+        console.log("Молодець!");
+        break;
+      case averageScore > 90 || averageVisiting > 0.9:
+        console.log("Добре, але можна краще");
+        break;
+      default:
+        console.log("Редиска!")
+        break;
+    }
+
+    console.log(`Середня оцінка студента ${Math.round(averageScore)}, відвідуванність ${averageVisiting}`)
+
+
+}
+}
+
+const stud = new Student ('Igor', 'Duliai', 1979)
+stud.studentAge;
+stud.present(100).present(90).present(90).present(100).present(100).present(100).present(90).present(90).present(100).present(100).present(100).present(90).present(90).present(100).present(100).present(100).present(90).present(90).present(100).present(100).present(100).present(90).present(90).present(100).absent().present(100);
+console.log(stud);
+stud.summary();
+
+const stud2 = new Student ('Gordon', 'Freeman', 1972)
+stud2.studentAge;
+stud2.present(100).present(90).present(90).present(100).present(100).present(100).present(90).present(90).present(100).present(100).present(100).present(90).present(90).present(100).present(100).present(100).present(90).present(90).absent().absent().absent().absent().absent().absent().absent().present(100);
+console.log(stud2);
+stud2.summary();
+
+const stud3 = new Student ('Greta', 'Thunberg', 2003)
+stud3.studentAge;
+stud3.present(31).present(90).present(90).present(42).present(56).present(44).present(90).present(90).present(22).present(33).present(11).present(90).present(90).present(50).present(50).present(50).present(90).present(90).absent().absent().absent().absent().absent().absent().absent().present(100);
+console.log(stud3);
+stud3.summary();
