@@ -697,7 +697,7 @@ car3.constInfo(); */
 
 /////////////////////// homework 17
 
-class Student {
+/* class Student {
   constructor (name, lastName, year) {
     this.name = name;
     this['last name'] = lastName;
@@ -759,9 +759,7 @@ class Student {
     }
 
     console.log(`Середня оцінка студента ${Math.round(averageScore)}, відвідуванність ${averageVisiting}`)
-
-
-}
+  };
 }
 
 const stud = new Student ('Igor', 'Duliai', 1979)
@@ -780,4 +778,32 @@ const stud3 = new Student ('Greta', 'Thunberg', 2003)
 stud3.studentAge;
 stud3.present(31).present(90).present(90).present(42).present(56).present(44).present(90).present(90).present(22).present(33).present(11).present(90).present(90).present(50).present(50).present(50).present(90).present(90).absent().absent().absent().absent().absent().absent().absent().present(100);
 console.log(stud3);
-stud3.summary();
+stud3.summary(); */
+
+
+///////////////////////////// homework 18 
+
+const table = document.createElement('table');
+const body = document.querySelector('body');
+body.appendChild(table);
+
+let counter = 1;
+const magicNumber = 10;
+
+for(let i = 0; i < magicNumber; i++){
+  const tableRow = document.createElement('tr');
+  table.appendChild(tableRow);
+
+  for(let j = 0; j < magicNumber; j++){
+    const tableData = document.createElement('td');
+    tableData.style.outline = "2px solid red";
+    tableData.style.padding = '5px';
+    tableRow.appendChild(tableData);
+    tableData.textContent = counter;
+    counter ++;
+  }
+}
+
+table.style.margin = '0 auto';
+table.style.fontSize = '50px';
+table.style.textAlign = 'center';
