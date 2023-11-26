@@ -782,7 +782,7 @@ stud3.summary(); */
 
 
 ///////////////////////////// homework 18 
-
+/* 
 const table = document.createElement('table');
 const body = document.querySelector('body');
 body.appendChild(table);
@@ -807,3 +807,41 @@ for(let i = 0; i < magicNumber; i++){
 table.style.margin = '0 auto';
 table.style.fontSize = '50px';
 table.style.textAlign = 'center';
+
+ */
+
+///////////////////  homework 19
+
+
+const images = [
+  'https://i.pinimg.com/564x/e0/97/73/e097739f0acfbe8bd2ffd50c70efa9ba.jpg',
+  'https://i.pinimg.com/564x/10/db/d4/10dbd4fcf99e7e6775697da493e4f100.jpg',
+  'https://i.pinimg.com/564x/bd/02/9c/bd029c822e77becb24759577517f65a2.jpg',
+  'https://i.pinimg.com/564x/97/85/3a/97853a8e839a2bc8eed25d6a2483e585.jpg',
+  'https://i.pinimg.com/564x/6a/5c/6b/6a5c6b4f99d3d2b05dfd81fed4791c27.jpg',
+  'https://i.pinimg.com/564x/ee/be/cb/eebecb8f59de08fec25c8af600a5c775.jpg',
+  'https://i.pinimg.com/564x/44/b7/c2/44b7c20082ea3f08ca0c704b22213cb2.jpg',
+  'https://i.pinimg.com/564x/2d/4a/82/2d4a8208e3f0f0acefa78a0c89f79983.jpg',
+  'https://i.pinimg.com/564x/92/e8/ab/92e8ab1e4114b1239d89b5df96e68573.jpg'
+]
+
+const img = document.createElement('img');
+const body = document.querySelector('body');
+const button = document.createElement('button');
+
+button.textContent = 'Кнопка виклику єдинорогів';
+button.style.margin = '0 auto';
+button.style.display = 'block';
+
+img.style.margin = '10px auto';
+img.style.display = 'block';
+
+body.appendChild(button)
+body.appendChild(img);
+
+ function getUnicornImage() {
+  img.setAttribute('src', images[Math.floor(Math.random() * images.length)])
+  console.log('clic', Math.floor(Math.random() * images.length))
+} 
+
+button.addEventListener('click', getUnicornImage)
