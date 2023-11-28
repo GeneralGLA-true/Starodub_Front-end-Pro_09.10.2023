@@ -782,8 +782,8 @@ stud3.summary(); */
 
 
 ///////////////////////////// homework 18 
-/* 
-const table = document.createElement('table');
+
+/* const table = document.createElement('table');
 const body = document.querySelector('body');
 body.appendChild(table);
 
@@ -806,14 +806,14 @@ for(let i = 0; i < magicNumber; i++){
 
 table.style.margin = '0 auto';
 table.style.fontSize = '50px';
-table.style.textAlign = 'center';
+table.style.textAlign = 'center'; */
 
- */
+
 
 ///////////////////  homework 19
 
 
-const images = [
+/* const images = [
   'https://i.pinimg.com/564x/e0/97/73/e097739f0acfbe8bd2ffd50c70efa9ba.jpg',
   'https://i.pinimg.com/564x/10/db/d4/10dbd4fcf99e7e6775697da493e4f100.jpg',
   'https://i.pinimg.com/564x/bd/02/9c/bd029c822e77becb24759577517f65a2.jpg',
@@ -836,12 +836,77 @@ button.style.display = 'block';
 img.style.margin = '10px auto';
 img.style.display = 'block';
 
-body.appendChild(button)
+body.appendChild(button);
 body.appendChild(img);
 
  function getUnicornImage() {
-  img.setAttribute('src', images[Math.floor(Math.random() * images.length)])
-  console.log('clic', Math.floor(Math.random() * images.length))
+  const randomImg = Math.floor(Math.random() * images.length);
+  img.setAttribute('src', images[randomImg]);
+  console.log('clic', randomImg);
 } 
 
-button.addEventListener('click', getUnicornImage)
+button.addEventListener('click', getUnicornImage); */
+
+/////////////////////////// homework 20 
+
+const button1 = document.createElement('a');
+const button2 = document.createElement('a');
+const body = document.querySelector('body');
+
+button1.textContent = "Перша кнопка";
+button2.textContent = "Друга кнопка";
+
+button1.setAttribute('href', 'http://xn--80adth0aefm3i.xn--j1amh');
+button2.setAttribute('href', '//hackyourmom.com/');
+
+function protocolChanger(event) {
+  event.preventDefault();
+  const link = event.target.href
+  if (!(link.startsWith("http") || link.startsWith("https"))) {
+    let correctLink = link.replace('file:', 'https:');
+    console.log('Посилання змінено на ', correctLink);
+    event.target.setAttribute ('href', correctLink);
+  };
+};
+
+function protocolCheker (event) {
+  const link = event.target.href;
+  if (!(link.startsWith("http") || link.startsWith("https"))) {
+    console.log(link, 'Посилання без протоколу!');
+    } else {
+      console.log(link);
+      };
+};
+
+function letButtonStyle () {
+  for (let i = 0; i < arguments.length; i++){
+    arguments[i].style.background = 'red';
+    arguments[i].style.padding = '10px';
+    arguments[i].style.textDecoration = 'none';
+    arguments[i].style.color = 'black';
+    arguments[i].style.fontWeight = '600';
+    arguments[i].style.fontSize = '50px';
+    arguments[i].style.borderRadius = '20px';
+    arguments[i].style.margin = '20px';
+  };
+};
+
+letButtonStyle(button1, button2);
+
+body.appendChild(button1);
+body.appendChild(button2);
+
+body.addEventListener('mouseover', (event) => {
+  if(event.target.tagName === 'A') {
+    protocolCheker(event);
+  };
+});
+
+body.addEventListener('click', (event) => {
+  if(event.target.tagName === 'A') {
+    protocolChanger(event);
+  };
+});
+
+
+/////////////// homework 21
