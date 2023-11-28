@@ -849,7 +849,7 @@ button.addEventListener('click', getUnicornImage); */
 
 /////////////////////////// homework 20 
 
-const button1 = document.createElement('a');
+/* const button1 = document.createElement('a');
 const button2 = document.createElement('a');
 const body = document.querySelector('body');
 
@@ -906,7 +906,7 @@ body.addEventListener('click', (event) => {
   if(event.target.tagName === 'A') {
     protocolChanger(event);
   };
-});
+}); */
 
 
 /////////////// homework 21
