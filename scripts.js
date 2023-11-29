@@ -849,7 +849,7 @@ button.addEventListener('click', getUnicornImage); */
 
 /////////////////////////// homework 20 
 
-const button1 = document.createElement('a');
+/* const button1 = document.createElement('a');
 const button2 = document.createElement('a');
 const body = document.querySelector('body');
 
@@ -907,6 +907,147 @@ body.addEventListener('click', (event) => {
     protocolChanger(event);
   };
 });
-
+ */
 
 /////////////// homework 21
+
+const body = document.querySelector('body');
+const container = document.createElement('div');
+container.style.width = '1100px'
+container.style.margin = '0 auto';
+
+const topCont = document.createElement('div');
+const bottomCont = document.createElement('div');
+bottomCont.style.display = 'flex';
+
+
+body.appendChild(container);
+container.appendChild(topCont);
+container.appendChild(bottomCont);
+
+function btnCreator() {
+  return document.createElement('button')
+};
+
+function imgCreator () {
+  return document.createElement('img');
+};
+
+function paragraphCreator () {
+  return document.createElement('p');
+}
+
+function btnStyler () {
+  for (let i = 0; i < arguments.length; i++) {
+    arguments[i].style.borderRadius = '50%';
+    arguments[i].style.padding = '0';
+    arguments[i].style.margin = '5px';
+  }
+};
+
+function counterStyler (){
+  for (let i = 0; i < arguments.length; i++) {
+    arguments[i].style.fontSize = '60px';
+    arguments[i].style.width = '215px';
+    arguments[i].style.textAlign = 'center';
+  }
+};
+
+
+const smileBtn = btnCreator();
+const smileBtn2 = btnCreator();
+const smileBtn3 = btnCreator();
+const smileBtn4 = btnCreator();
+const smileBtn5 = btnCreator();
+
+btnStyler(smileBtn, smileBtn2, smileBtn3, smileBtn4, smileBtn5);
+
+
+const smile = imgCreator();
+smile.setAttribute('id', 'smile1');
+smile.setAttribute('src', 'images/smile1.png');
+
+const smile2 = imgCreator();
+smile2.setAttribute('id', 'smile2');
+smile2.setAttribute('src', 'images/smile2.png');
+
+const smile3 = imgCreator();
+smile3.setAttribute('id', 'smile3');
+smile3.setAttribute('src', 'images/smile3.png');
+
+const smile4 = imgCreator();
+smile4.setAttribute('id', 'smile4');
+smile4.setAttribute('src', 'images/smile4.png');
+
+const smile5 = imgCreator();
+smile5.setAttribute('id', 'smile5');
+smile5.setAttribute('src', 'images/smile5.png');
+
+
+let smileCount = 0;
+let smileCount2 = 0;
+let smileCount3 = 0;
+let smileCount4 = 0;
+let smileCount5 = 0;
+
+const smileCounter = paragraphCreator();
+const smileCounter2 = paragraphCreator();
+const smileCounter3 = paragraphCreator();
+const smileCounter4 = paragraphCreator();
+const smileCounter5 = paragraphCreator();
+
+smileCounter.textContent = smileCount;
+smileCounter2.textContent = smileCount2;
+smileCounter3.textContent = smileCount3;
+smileCounter4.textContent = smileCount4;
+smileCounter5.textContent = smileCount5;
+
+counterStyler(smileCounter, smileCounter2, smileCounter3, smileCounter4, smileCounter5);
+
+
+topCont.addEventListener('click', function(event) {
+  if (event.target.tagName === 'IMG') {
+    switch (true) {
+      case event.target.id === 'smile1':
+        smileCount++;
+        smileCounter.textContent = smileCount;
+        break;
+      case event.target.id === 'smile2':
+        smileCount2++;
+        smileCounter2.textContent = smileCount2;
+        break;
+      case event.target.id === 'smile3':
+        smileCount3++;
+        smileCounter3.textContent = smileCount3;
+        break;
+      case event.target.id === 'smile4':
+        smileCount4++;
+        smileCounter4.textContent = smileCount4;
+        break;
+      case event.target.id === 'smile5':
+        smileCount5++;
+        smileCounter5.textContent = smileCount5;
+        break;
+      default:
+        break;
+    };
+  };
+});
+
+topCont.appendChild(smileBtn);
+topCont.appendChild(smileBtn2);
+topCont.appendChild(smileBtn3);
+topCont.appendChild(smileBtn4);
+topCont.appendChild(smileBtn5);
+
+smileBtn.appendChild(smile);
+smileBtn2.appendChild(smile2);
+smileBtn3.appendChild(smile3);
+smileBtn4.appendChild(smile4);
+smileBtn5.appendChild(smile5);
+
+bottomCont.appendChild(smileCounter);
+bottomCont.appendChild(smileCounter2);
+bottomCont.appendChild(smileCounter3);
+bottomCont.appendChild(smileCounter4);
+bottomCont.appendChild(smileCounter5);
