@@ -911,7 +911,7 @@ body.addEventListener('click', (event) => {
 
 /////////////// homework 21
 
-const body = document.querySelector('body');
+/* const body = document.querySelector('body');
 const container = document.createElement('div');
 container.style.width = '1100px'
 container.style.margin = '0 auto';
@@ -1050,4 +1050,252 @@ bottomCont.appendChild(smileCounter);
 bottomCont.appendChild(smileCounter2);
 bottomCont.appendChild(smileCounter3);
 bottomCont.appendChild(smileCounter4);
-bottomCont.appendChild(smileCounter5);
+bottomCont.appendChild(smileCounter5); */
+
+
+////////////////////// homework 22
+
+const body = document.querySelector('body');
+const container = document.createElement('div');
+const asideLeft = document.createElement('div');
+const main = document.createElement('div');
+const asideRight = document.createElement('div');
+const owerview = document.createElement('p');
+const catList = document.createElement('ul');
+catList.style.fontSize = '40px'
+
+let arrayItem = new Array;
+let indexCount = 0;
+let templateContainer = new String;
+main.style.display = 'flex';
+main.style.fontSize = '15px';
+
+
+owerview.setAttribute('id', 'owerview');
+body.appendChild(container);
+container.style.display = 'flex';
+container.appendChild(asideLeft);
+container.appendChild(main);
+container.appendChild(asideRight);
+asideRight.appendChild(owerview)
+
+asideLeft.style.width = '15%';
+main.style.width = '65%';
+asideRight.style.width = '20%';
+asideRight.style.fontSize = '20px';
+
+
+
+const catPhones = document.createElement('li');
+catPhones.textContent = 'Телефони';
+catPhones.setAttribute('id', 'phones');
+
+const catLaptops = document.createElement('li');
+catLaptops.textContent = 'Ноутбуки';
+catLaptops.setAttribute('id', 'laptop');
+
+const catWathes = document.createElement('li');
+catWathes.textContent = 'Годинники';
+catWathes.setAttribute('id', 'wathes');
+
+const catAudio = document.createElement('li');
+catAudio.textContent = 'Аудіо';
+catAudio.setAttribute('id', 'audio');
+
+
+function addListChild () {
+  for(let i = 0; i < arguments.length; i++) {
+    catList.appendChild(arguments[i]);
+  };
+};
+asideLeft.appendChild(catList)
+addListChild(catPhones, catLaptops, catWathes, catAudio);
+
+
+const phonesData = [
+  [
+    'https://content.rozetka.com.ua/goods/images/big_tile/328132326.jpg',
+    'Мобільний телефон Samsung Galaxy A24 6/128GB Black (SM-A245FZKVSEK)',
+    `Екран (6.5", Super AMOLED, 2340x1080) / Mediatek Helio G99 (2 x 2.6 ГГц + 6 x 2.0 ГГц) / основна потрійна камера: 50 Мп + 5 Мп + 2 Мп, фронтальна камера: 13 Мп / RAM 6 ГБ / 128 ГБ вбудованої пам'яті + microSD (до 1 ТБ) / 3G / LTE / GPS / ГЛОНАСС / BDS / підтримка 2х SIM-карток (Nano-SIM) / Android 13 / 5000 мА * год`,
+  ],
+
+  [
+    'https://content2.rozetka.com.ua/goods/images/big_tile/364623745.jpg',
+    'Мобільний телефон Apple iPhone 15 128GB Black (MTP03RX/A)',
+    `Екран (6.1", OLED (Super Retina XDR), 2556x1179) / Apple A16 Bionic / подвійна основна камера: 48 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 17`,
+  ],
+
+  [
+    'https://content.rozetka.com.ua/goods/images/big_tile/366851813.jpg',
+    'Мобільний телефон Motorola G54 Power 12/256GB eSim Mint Green (1002724)',
+    `Екран (6.5", IPS, 2400x1080) / MediaTek Dimensity 7020 (2.2 ГГц + 2.0 ГГц) / подвійна основна камера: 50 Мп + 8 Мп, фронтальна камера: 16 Мп / RAM 12 ГБ / 256 ГБ вбудованої памʼяті + microSD (до 1 ТБ) / 3G / LTE / 5G / GPS / Nano-SIM + eSIM / Android 13 / 6000 мА*год`,
+  ]
+];
+
+const laptopData = [
+  [
+    'https://content.rozetka.com.ua/goods/images/big_tile/334492325.jpg',
+    'Ноутбук Lenovo IdeaPad Slim 5 16IAH8 (83BG001ARA) Cloud Grey / 16" IPS WUXGA / Intel Core i5-12450H / RAM 16 ГБ / SSD 512 ГБ / Підсвічування клавіатури',
+    'Екран 16" IPS (1920x1200) WUXGA, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / Intel UHD Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.89 кг / сірий',
+  ],
+  [
+    'https://content1.rozetka.com.ua/goods/images/big_tile/144249735.jpg',
+    'Ноутбук Apple MacBook Air 13" M1 8/256GB 2020 (MGN63) Space Gray',
+    'Екран 13.3" Retina (2560x1600) WQXGA, глянсовий / Apple M1 / RAM 8 ГБ / SSD 256 ГБ / Apple M1 Graphics / Wi-Fi / Bluetooth / macOS Big Sur / 1.29 кг / сірий',
+  ],
+  [
+    'https://content2.rozetka.com.ua/goods/images/big_tile/372703245.jpg',
+    'Ноутбук Acer Nitro 5 AN517-54-72WJ (NH.QF8EU.00S) Shale Black / 17.3” IPS Full HD 144 Гц / Intel Core i7-11600H / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ',
+    `Екран 17.3” IPS (1920x1080) Full HD 144 Гц, матовий / Intel Core i7-11600H (2.5 - 4.6 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / вебкамера / без ОС / 2.7 кг / чорний`,
+  ]
+]
+
+const wathesData = [
+  [
+    'https://content.rozetka.com.ua/goods/images/big_tile/279974312.jpg',
+    'Смарт-годинник Samsung Galaxy Watch 5 Pro 45mm eSIM Black (SM-R925FZKASEK)',
+    `Сумісність:Android,Повідомлення: + (Вхідні дзвінки, ...Пульсометр: +Дисплей: Super AMOLED, Діагональ: 1,36 дюймів, Ремінець: силікон`
+  ],
+  [
+    'https://content2.rozetka.com.ua/goods/images/big_tile/325605816.jpg',
+    'Смарт-годинник Apple Watch Series 8 GPS 41mm Silver Aluminium Case with White Sport Band (MP6K3UL/A)',
+    `Сумісність:iOS; Повідомлення: +Пульсометр: + (Оптичний), Час роботи: до 18 годин, Дисплей: OLED, Діагональ: 1,69 дюймівРемінець: силікон`
+  ],
+  [
+    'https://content2.rozetka.com.ua/goods/images/big_tile/238865566.jpg',
+    'Смарт-годинник Huawei Watch GT3 42 mm Frosty White (55027150)',
+    `смарт-годинник для тих, хто хоче отримати елегантний класичний аксесуар, але при цьому доповнити його широким переліком корисних функцій та сучасних технологій. Корпус пристрою виготовлений із нержавіючої сталі та постачається у кількох варіантах забарвлення. У Huawei Watch GT 3 встановлюється круглий дисплей AMOLED з діагоналлю 1,32 або 1,43 дюйма в залежності від конкретного варіанту виконання. Годинник управляється операційною системою HarmonyOS 2 і вміє сповіщати про вхідні події, дозволяє керувати музикою, підтримує функцію гучного зв'язку та багато іншого. Вони мають вбудований пульсометр, пульсоксиметр, крокомір, здатні записувати стан сну та вести точний підрахунок активності протягом дня або під час тренувань. Залежно від режиму використання заряду Huawei Watch GT 3 може вистачити на 14 днів автономної роботи.`
+  ]
+];
+
+const audioData = [
+  [
+    'https://content2.rozetka.com.ua/goods/images/big_tile/314505544.jpg',
+    'Навушники Hator Hypergang PC Edition Black (HTA-805)',
+    `Діапазон частот навушників: 20 Гц – 20кГц, Навушники Hator Hypergang PC Edition Black (HTA-805)`
+  ],
+  [
+    'https://content2.rozetka.com.ua/goods/images/big_tile/383262363.jpg',
+    'Навушники RZTK MS300 Black',
+    `Діапазон частот навушників: 20 Гц - 20 кГц, Навушники RZTK MS300 Black`
+  ],
+  [
+    'https://content2.rozetka.com.ua/goods/images/big_tile/318173556.jpg',
+    'Навушники JBL Tune 720BT Purple (JBLT720BTPUR)',
+    `Діапазон частот навушників: 20 Гц – 20 кГц, Навушники JBL Tune 720BT Purple (JBLT720BTPUR)`
+  ]
+];
+
+function getProdutTemplate (arrProd) {
+return indexCount++,`
+<section id="section${indexCount}", style="width: 410px">
+<img src="${arrProd[0]}" alt="phone">
+<p>${arrProd[1]}</p>
+</section>
+`
+};
+
+function addToMain (productTemplate) {
+  main.innerHTML += productTemplate;
+};
+
+function template(prodArray) {
+  for (let i = 0; i < prodArray.length; i++) {
+    const prodTemp = getProdutTemplate(prodArray[i]);
+    addToMain(prodTemp);
+    arrayItem = prodArray;
+  };
+};
+
+function owerviewCreator(i) {
+  owerview.innerHTML = ` 
+  <p>${arrayItem[i][2]}</p>
+  <button>Купити зараз</button>`;
+};
+
+
+catList.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') {
+    if (main.innerHTML != '') {
+      main.innerHTML = ''
+    };
+    switch (true) {
+      case event.target.id === 'phones':
+        template(phonesData);
+        arrayItem = phonesData; 
+        indexCount = 0;
+        break;
+
+      case event.target.id === 'laptop':
+        template(laptopData);
+        arrayItem = laptopData; 
+        indexCount = 0;
+        break;
+
+      case event.target.id === 'wathes':
+        template(wathesData);
+        arrayItem = wathesData; 
+        indexCount = 0;
+        break; 
+
+      case event.target.id === 'audio':
+        template(audioData);
+        arrayItem = audioData; 
+        indexCount = 0;
+        break; 
+
+      default:
+        console.log('Щось пішло не так(((')
+        break;
+    };
+  };
+});
+
+
+main.addEventListener('click', (event) => {
+  if (event.target.parentElement.nodeName === 'SECTION' || event.target.tagName === 'SECTION') {
+    console.log('12312')
+    switch (true) {
+      case event.target.parentElement.id === 'section1' || event.target.id === 'section1':
+        owerviewCreator(0)  
+        console.log('321')       
+        break;
+      case event.target.parentElement.id === 'section2' || event.target.id === 'section2':
+        owerviewCreator(1)  
+        console.log('123')    
+        break;
+      case event.target.parentElement.id === 'section3' || event.target.id === 'section3':
+        owerviewCreator(2)  
+        console.log('123')    
+        break;
+      default:
+        console.log('Щось пішло не так(((')
+        break;
+    };
+  };
+});
+
+asideRight.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON'){
+    alert('Товар придбано');
+    location.reload();
+  };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
