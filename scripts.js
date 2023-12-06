@@ -906,8 +906,8 @@ body.addEventListener('click', (event) => {
   if(event.target.tagName === 'A') {
     protocolChanger(event);
   };
-});
- */
+}); */
+
 
 /////////////// homework 21
 
@@ -1055,7 +1055,7 @@ bottomCont.appendChild(smileCounter5); */
 
 ////////////////////// homework 22
 
-const body = document.querySelector('body');
+/* const body = document.querySelector('body');
 const container = document.createElement('div');
 const asideLeft = document.createElement('div');
 const main = document.createElement('div');
@@ -1280,12 +1280,63 @@ asideRight.addEventListener('click', (e) => {
     alert('Товар придбано');
     location.reload();
   };
-});
+}); */
 
 
 
+//console.log(window.localStorage)
+const body = document.querySelector('body');
+const container = document.createElement('div');
+
+body.appendChild(container);
 
 
+const fetchAllProducts = async () => {
+  return (await fetch("https://dummyjson.com/products")).json();
+};
+
+
+
+async function getAllProducts() {
+  const response = await fetchAllProducts();
+  const prouducts = response.products;
+  console.log(prouducts, "prouducts");
+
+  function getTemplate (prod) {
+    console.log('1')
+    return `
+    <div class="stuff" id = "${prod.id}">
+      <img src="${prod.images[0]}" alt="#" class="images">
+      <p>${prod.description}</p>
+      <p>${prod.price}$</p>
+      </div>
+    `
+  }
+
+  function appendToContainer (template) {
+    container.innerHTML += template;
+  }
+
+  for (let i = 0; i < prouducts.lenght; i++) {
+    const template = getTemplate(prouducts[i]);
+    appendToContainer(template)
+  }
+
+
+
+/*   function getAllStuff () {
+    console.log('2');
+    for (let i = 0; i < prouducts.lenght; i++){
+      console.log(i)
+      const template = getTemplate(prouducts[i]);
+      container.innerHTML =+ template;
+    }
+  }
+  getAllStuff() */
+}
+
+
+getAllProducts()
 
 
 
