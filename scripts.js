@@ -1283,61 +1283,189 @@ asideRight.addEventListener('click', (e) => {
 }); */
 
 
-
 //console.log(window.localStorage)
+
+
 const body = document.querySelector('body');
 const container = document.createElement('div');
+const asideLeft = document.createElement('div');
 
+const categoryList = document.createElement('ul');
+const catSmartphones = document.createElement('li');
+const catLaptops = document.createElement('li');
+const catFrangrances = document.createElement('li');
+const catSkinCare = document.createElement('li');
+const catGroceries = document.createElement('li');
+const catHomeDecoration = document.createElement('li');
+
+
+function appendToCategoryList (){
+  for (let i = 0; i < arguments.length; i++) {
+    categoryList.appendChild(arguments[i]);
+  }
+}
+
+
+body.appendChild(asideLeft);
+asideLeft.appendChild(categoryList);
 body.appendChild(container);
+appendToCategoryList(catSmartphones, catLaptops, catFrangrances, catSkinCare, catGroceries, catHomeDecoration);
+
+
+catSmartphones.textContent = 'Smartphones';
+catLaptops.textContent = 'Laptops';
+catFrangrances.textContent = 'Frangrances';
+catSkinCare.textContent = 'Skin care';
+catGroceries.textContent = 'Groceries';
+catHomeDecoration.textContent = 'Home decoration';
+
+body.style.display = 'flex';
+container.style.display = 'flex';
+container.style['flex-wrap'] = 'wrap';
+container.style.width = '60%';
+asideLeft.style.width = '15%';
 
 
 const fetchAllProducts = async () => {
   return (await fetch("https://dummyjson.com/products")).json();
 };
 
-
-
-async function getAllProducts() {
+async function getAllProducts(category) {
   const response = await fetchAllProducts();
   const prouducts = response.products;
+
   console.log(prouducts, "prouducts");
 
-  function getTemplate (prod) {
-    console.log('1')
-    return `
-    <div class="stuff" id = "${prod.id}">
-      <img src="${prod.images[0]}" alt="#" class="images">
-      <p>${prod.description}</p>
-      <p>${prod.price}$</p>
-      </div>
-    `
+  const smartphonesArray = [];
+  const laptopsArray = [];
+  const fragrancesArray = [];
+  const skinCareArray = [];
+  const groceriesArray = [];
+  const homeDecorationArray = [];
+
+  for (let i = 0; i < prouducts.length; i++){
+  switch (true) {
+    case prouducts[i].category === 'smartphones':
+      smartphonesArray.push(prouducts[i])
+      break;
+    case prouducts[i].category === 'laptops':
+      laptopsArray.push(prouducts[i]);
+      break;
+    case prouducts[i].category === 'fragrances':
+      fragrancesArray.push(prouducts[i]);
+      break;
+    case prouducts[i].category === 'skincare':
+      skinCareArray.push(prouducts[i]);
+      break;
+    case prouducts[i].category === 'groceries':
+      groceriesArray.push(prouducts[i]);
+      break;
+    case prouducts[i].category === 'home-decoration':
+      homeDecorationArray.push(prouducts[i]);
+      break;
+    default:
+      alert('Something wrong(')
+      break;
+  }
   }
 
-  function appendToContainer (template) {
-    container.innerHTML += template;
+  console.log(smartphonesArray, 'smartphones');
+  console.log(laptopsArray, 'laptops');
+  console.log(fragrancesArray, 'fragrances');
+  console.log(skinCareArray, 'skincare');
+  console.log(groceriesArray, 'groceries');
+  console.log(homeDecorationArray, 'home-decoration');
+
+  switch (true) {
+    case category === 'smartphones':
+      category = smartphonesArray;
+      break;
+
+    case category === 'laptops':
+      category = laptopsArray;
+      break;
+
+    case category === 'fragrances':
+      category = fragrancesArray;
+      break;
+
+    case category === 'skincare':
+      category = skinCareArray;
+      break;
+
+    case category === 'groceries':
+      category = groceriesArray;
+      break;
+
+    case category === 'home-decoration':
+      category = homeDecorationArray;
+      break;
+    default:
+      alert('oooops(')
+      break;
   }
+  
 
-  for (let i = 0; i < prouducts.lenght; i++) {
-    const template = getTemplate(prouducts[i]);
-    appendToContainer(template)
-  }
-
-
-
-/*   function getAllStuff () {
-    console.log('2');
-    for (let i = 0; i < prouducts.lenght; i++){
-      console.log(i)
-      const template = getTemplate(prouducts[i]);
-      container.innerHTML =+ template;
-    }
-  }
-  getAllStuff() */
+  getChosenCategory(category)
 }
 
 
-getAllProducts()
+function getChosenCategory (array) {
+  for (let i = 0; i < array.length; i++) {
+    const template = getTemplate(array[i]);
+    appendToContainer(template)
+  }
+}
 
+function getTemplate (prod) {
+  return `
+  <div class="stuff" id = "${prod.id}">
+    <img src="${prod.images[0]}" alt="#" class="images">
+    <p>${prod.description}</p>
+    <p>${prod.price}$</p>
+    </div>
+  `;
+};
+
+function appendToContainer (template) {
+  container.innerHTML += template;
+};
+
+
+categoryList.addEventListener('click', (e) => {
+  if(e.target.tagName = 'LI'){
+    if (container.innerHTML != ''){
+      container.innerHTML = '';
+    }
+    switch (true) {
+      case e.target === catSmartphones:
+        getAllProducts('smartphones');
+        break;
+
+      case e.target === catLaptops:
+        getAllProducts('laptops');
+        break;
+
+      case e.target === catFrangrances:
+        getAllProducts('fragrances');
+        break;
+
+      case e.target === catSkinCare:
+        getAllProducts('skincare');
+        break;
+
+      case e.target === catGroceries:
+        getAllProducts('groceries');
+        break;
+
+      case e.target === catHomeDecoration:
+        getAllProducts('home-decoration');
+        break;
+      default:
+        break;
+    }
+  }
+})
 
 
 
