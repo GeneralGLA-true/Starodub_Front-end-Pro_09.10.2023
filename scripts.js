@@ -1472,7 +1472,37 @@ categoryList.addEventListener('click', (e) => {
 
 
 
-/////////////////////////////////////
+///////////////////////////////////// homework 23
+
+const form = document.querySelector('form');
+const body = document.querySelector('body');
+const table = document.createElement('div');
+
+
+form.style.width = '210px';
+
+body.style.display = 'flex';
+
+body.appendChild(table);
+
+function displayForm (obj) {
+  let template = '';
+  for (key in obj) {
+    template += `<p> ${key}: ${obj[key]} </p>`
+  }
+  return template
+}
+
+form.addEventListener('submit',
+(e) => {
+  e.preventDefault()
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  console.log(data)
+  const userData = displayForm(data);
+  table.innerHTML = userData
+})
+
+
 
 
 
