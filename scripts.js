@@ -1286,7 +1286,9 @@ asideRight.addEventListener('click', (e) => {
 //console.log(window.localStorage)
 
 
-const body = document.querySelector('body');
+////////////////////////////////////    отсебятина
+
+/* const body = document.querySelector('body');
 const container = document.createElement('div');
 const asideLeft = document.createElement('div');
 
@@ -1466,8 +1468,11 @@ categoryList.addEventListener('click', (e) => {
     }
   }
 })
+ */
 
 
+
+/////////////////////////////////////
 
 
 
