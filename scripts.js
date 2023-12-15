@@ -1288,9 +1288,10 @@ asideRight.addEventListener('click', (e) => {
 
 ////////////////////////////////////    отсебятина
 
-/* const body = document.querySelector('body');
+const body = document.querySelector('body');
 const container = document.createElement('div');
 const asideLeft = document.createElement('div');
+const asideRight = document.createElement('div')
 
 const categoryList = document.createElement('ul');
 const catSmartphones = document.createElement('li');
@@ -1299,6 +1300,7 @@ const catFrangrances = document.createElement('li');
 const catSkinCare = document.createElement('li');
 const catGroceries = document.createElement('li');
 const catHomeDecoration = document.createElement('li');
+
 
 
 function appendToCategoryList (){
@@ -1311,6 +1313,7 @@ function appendToCategoryList (){
 body.appendChild(asideLeft);
 asideLeft.appendChild(categoryList);
 body.appendChild(container);
+body.appendChild(asideRight);
 appendToCategoryList(catSmartphones, catLaptops, catFrangrances, catSkinCare, catGroceries, catHomeDecoration);
 
 
@@ -1322,10 +1325,19 @@ catGroceries.textContent = 'Groceries';
 catHomeDecoration.textContent = 'Home decoration';
 
 body.style.display = 'flex';
+body.style.background = '#e1f4a4'
 container.style.display = 'flex';
 container.style['flex-wrap'] = 'wrap';
 container.style.width = '60%';
 asideLeft.style.width = '15%';
+asideLeft.style.fontSize = '25px';
+asideLeft.style.border = '5px dotted red'
+asideRight.style.width = '25%';
+asideRight.style.fontSize = '25px';
+asideRight.style.textAlign = 'center';
+asideRight.style.border = '5px dashed red';
+
+
 
 
 const fetchAllProducts = async () => {
@@ -1408,7 +1420,7 @@ async function getAllProducts(category) {
   }
   
 
-  getChosenCategory(category)
+  getChosenCategory(category);
 }
 
 
@@ -1423,7 +1435,7 @@ function getTemplate (prod) {
   return `
   <div class="stuff" id = "${prod.id}">
     <img src="${prod.images[0]}" alt="#" class="images">
-    <p>${prod.description}</p>
+    <p>${prod.title}</p>
     <p>${prod.price}$</p>
     </div>
   `;
@@ -1465,16 +1477,95 @@ categoryList.addEventListener('click', (e) => {
         break;
       default:
         break;
-    }
-  }
+    };
+  };
+});
+
+async function getDescription (parentId) {
+  const response = await fetchAllProducts();
+  const prouducts = response.products;
+  const index = getIndexOfProduct(prouducts, +parentId);
+
+  description = getDescriptionTemplate(prouducts[index]);
+  appendToDescription(description);
+};
+
+function getIndexOfProduct (prod, parentId){
+  let index = 0;
+  for (let i = 0; i < prod.length; i++){
+    if (prod[i].id === parentId){
+      index = i;
+    };
+  };
+  return index;
+}
+
+function getDescriptionTemplate (prouducts) {
+  return `
+  <p>${prouducts.description}</p>
+  <button id="BuyButton">Замовити</button>`
+};
+
+function appendToDescription (descrTempl){
+  asideRight.innerHTML = descrTempl;
+}
+
+container.addEventListener('click', (e) => {
+  if (asideRight.innerHTML != ''){
+    asideRight.innerHTML = ''
+  };
+  if (e.target.tagName === 'DIV'){
+    const targetId = e.target.id;
+    getDescription(targetId);
+ };
+ if (e.target.tagName != 'DIV'){
+  const targetId = e.target.parentElement.id;
+  getDescription(targetId);
+ }
 })
- */
+
+asideRight.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON'){
+    alert('Товар придбано');
+    location.reload();
+  };
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 ///////////////////////////////////// homework 23
 
-const form = document.querySelector('form');
+/* const form = document.querySelector('form');
 const body = document.querySelector('body');
 const table = document.createElement('div');
 
@@ -1500,7 +1591,7 @@ form.addEventListener('submit',
   console.log(data)
   const userData = displayForm(data);
   table.innerHTML = userData
-})
+}) */
 
 
 
