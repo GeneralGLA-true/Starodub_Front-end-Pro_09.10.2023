@@ -1286,12 +1286,13 @@ asideRight.addEventListener('click', (e) => {
 //console.log(window.localStorage)
 
 
-////////////////////////////////////    отсебятина
+////////////////////////////////////    отсебятина + homework 24
 
 const body = document.querySelector('body');
 const container = document.createElement('div');
 const asideLeft = document.createElement('div');
-const asideRight = document.createElement('div')
+const asideRight = document.createElement('div');
+const orderBtn = document.createElement('a');
 
 const categoryList = document.createElement('ul');
 const catSmartphones = document.createElement('li');
@@ -1311,6 +1312,7 @@ function appendToCategoryList (){
 
 
 body.appendChild(asideLeft);
+asideLeft.appendChild(orderBtn);
 asideLeft.appendChild(categoryList);
 body.appendChild(container);
 body.appendChild(asideRight);
@@ -1329,13 +1331,23 @@ body.style.background = '#e1f4a4'
 container.style.display = 'flex';
 container.style['flex-wrap'] = 'wrap';
 container.style.width = '60%';
+container.style.textAlign = 'center'
 asideLeft.style.width = '15%';
 asideLeft.style.fontSize = '25px';
-asideLeft.style.border = '5px dotted red'
+asideLeft.style.background = '#bbca8c';
+asideLeft.style.textAlign = 'center'
 asideRight.style.width = '25%';
 asideRight.style.fontSize = '25px';
 asideRight.style.textAlign = 'center';
-asideRight.style.border = '5px dashed red';
+asideRight.style.background = '#bbca8c';
+asideRight.style.padding = '20px';
+orderBtn.textContent = 'Мої замовлення';
+orderBtn.setAttribute('href', '#');
+orderBtn.style.textDecoration = 'none';
+orderBtn.style.background = 'red';
+orderBtn.style.padding = '5px 20px';
+orderBtn.style.borderRadius = '45%';
+
 
 
 
@@ -1446,9 +1458,9 @@ function appendToContainer (template) {
 };
 
 
-categoryList.addEventListener('click', (e) => {
-  if(e.target.tagName = 'LI'){
-    if (container.innerHTML != ''){
+asideLeft.addEventListener('click', (e) => {
+  if(e.target.tagName === 'LI' || e.target.tagName === 'A'){
+    if (container.innerHTML !== ''){
       container.innerHTML = '';
     }
     switch (true) {
@@ -1475,10 +1487,17 @@ categoryList.addEventListener('click', (e) => {
       case e.target === catHomeDecoration:
         getAllProducts('home-decoration');
         break;
+      
       default:
         break;
     };
+
+    if (e.target.tagName === 'A') {
+      categoryList.style.display = 'none';
+      getOrders()
+    };
   };
+
 });
 
 async function getDescription (parentId) {
@@ -1503,7 +1522,7 @@ function getIndexOfProduct (prod, parentId){
 function getDescriptionTemplate (prouducts) {
   return `
   <p>${prouducts.description}</p>
-  <button id="BuyButton">Замовити</button>`
+  <button id="${prouducts.id}BuyButton">Замовити</button>`
 };
 
 function appendToDescription (descrTempl){
@@ -1521,34 +1540,73 @@ container.addEventListener('click', (e) => {
  if (e.target.tagName != 'DIV'){
   const targetId = e.target.parentElement.id;
   getDescription(targetId);
- }
+ };
+ if (e.target.className) {}
 })
+
+
+async function addToLocalStorage (id) {
+  const response = await fetchAllProducts();
+  const prouducts = response.products;
+  const index = getIndexOfProduct(prouducts, id);
+  const date = Date();
+  localStorage.setItem(`${index}`, `${date}`);
+};
 
 asideRight.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON'){
+    const id = parseInt(e.target.id);
+    addToLocalStorage(id);
     alert('Товар придбано');
     location.reload();
   };
 }); 
 
 
+async function getOrders () {
+  const response = await fetchAllProducts();
+  const prouducts = response.products;
+
+  let keys = Object.keys(localStorage);
+  console.log(keys)
+
+  for (key of keys) {
+    console.log(localStorage[key]);
+    console.log(key);
+    const template = oderTemplate (prouducts[key], localStorage[key]);
+    appendToContainer(template)
+  };
+
+
+}
 
 
 
 
+function oderTemplate (array, date){
+  return `
+  <div class="order">
+  <p>Замовлення на суму: ${array.price}$</p>
+  <p>${date}</p>
+  <button class="deleteOrder">Видалити</button>
+</div>`
+};
+
+console.log(localStorage)
 
 
 
 
+//localStorage.clear()
+//const test = [{id: 1, some: '123'}, {id: 2, some: '321'},]
+//e.target.parentElement.remove()
 
 
-
-
-
-
-
-
-
+/* let keys = Object.keys(localStorage);
+console.log(keys)
+for (key of keys) {
+  console.log(key)
+} */
 
 
 
