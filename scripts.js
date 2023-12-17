@@ -1286,7 +1286,7 @@ asideRight.addEventListener('click', (e) => {
 //console.log(window.localStorage)
 
 
-////////////////////////////////////    отсебятина + homework 24
+/* ////////////////////////////////////    отсебятина + homework 24
 
 const body = document.querySelector('body');
 const container = document.createElement('div');
@@ -1302,13 +1302,17 @@ const catSkinCare = document.createElement('li');
 const catGroceries = document.createElement('li');
 const catHomeDecoration = document.createElement('li');
 
+if (!localStorage.getItem("countOfOrder")){
+  localStorage.setItem("countOfOrder", 0);
+};
+
 
 
 function appendToCategoryList (){
   for (let i = 0; i < arguments.length; i++) {
     categoryList.appendChild(arguments[i]);
-  }
-}
+  };
+};
 
 
 body.appendChild(asideLeft);
@@ -1327,24 +1331,24 @@ catGroceries.textContent = 'Groceries';
 catHomeDecoration.textContent = 'Home decoration';
 
 body.style.display = 'flex';
-body.style.background = '#e1f4a4'
+body.style.background = '#c6cec6'
 container.style.display = 'flex';
 container.style['flex-wrap'] = 'wrap';
 container.style.width = '60%';
-container.style.textAlign = 'center'
+container.style.textAlign = 'center';
 asideLeft.style.width = '15%';
 asideLeft.style.fontSize = '25px';
-asideLeft.style.background = '#bbca8c';
+asideLeft.style.background = '#a6a9a6';
 asideLeft.style.textAlign = 'center'
 asideRight.style.width = '25%';
 asideRight.style.fontSize = '25px';
 asideRight.style.textAlign = 'center';
-asideRight.style.background = '#bbca8c';
+asideRight.style.background = '#a6a9a6';
 asideRight.style.padding = '20px';
 orderBtn.textContent = 'Мої замовлення';
 orderBtn.setAttribute('href', '#');
 orderBtn.style.textDecoration = 'none';
-orderBtn.style.background = 'red';
+orderBtn.style.background = '#6a746a';
 orderBtn.style.padding = '5px 20px';
 orderBtn.style.borderRadius = '45%';
 
@@ -1533,15 +1537,23 @@ container.addEventListener('click', (e) => {
   if (asideRight.innerHTML != ''){
     asideRight.innerHTML = ''
   };
-  if (e.target.tagName === 'DIV'){
+  if (e.target.className === 'stuff'){
     const targetId = e.target.id;
     getDescription(targetId);
  };
- if (e.target.tagName != 'DIV'){
+ if (e.target.parentElement.className === 'stuff'){
   const targetId = e.target.parentElement.id;
   getDescription(targetId);
  };
- if (e.target.className) {}
+ if (e.target.className === 'deleteOrder') {
+  const orderNo = parseInt(e.target.parentElement.id); 
+  localStorage.removeItem(orderNo);
+  e.target.parentElement.remove()
+ };
+ if (e.target.className === 'order') {
+  const hidenDetails = e.target.querySelector('.none');
+  hidenDetails.style.display = 'block'
+ }
 })
 
 
@@ -1550,7 +1562,8 @@ async function addToLocalStorage (id) {
   const prouducts = response.products;
   const index = getIndexOfProduct(prouducts, id);
   const date = Date();
-  localStorage.setItem(`${index}`, `${date}`);
+  const orderInfo = [index, date];
+  localStorage.setItem(`${countOfOrder}`, JSON.stringify(orderInfo));
 };
 
 asideRight.addEventListener('click', (e) => {
@@ -1558,6 +1571,10 @@ asideRight.addEventListener('click', (e) => {
     const id = parseInt(e.target.id);
     addToLocalStorage(id);
     alert('Товар придбано');
+    countOfOrder = localStorage.getItem("countOfOrder");
+    +countOfOrder++
+    console.log(countOfOrder)
+    localStorage.setItem('countOfOrder', countOfOrder)
     location.reload();
   };
 }); 
@@ -1571,55 +1588,40 @@ async function getOrders () {
   console.log(keys)
 
   for (key of keys) {
+    if (key != 'countOfOrder'){
     console.log(localStorage[key]);
-    console.log(key);
-    const template = oderTemplate (prouducts[key], localStorage[key]);
+    //console.log(key);
+    const template = oderTemplate (prouducts, key);
     appendToContainer(template)
+  }
   };
+};
 
 
-}
-
-
-
-
-function oderTemplate (array, date){
+function oderTemplate (array, orderNo) {
+  const order = JSON.parse(localStorage.getItem(orderNo))
+  const arrIndex = order[0]
   return `
-  <div class="order">
-  <p>Замовлення на суму: ${array.price}$</p>
-  <p>${date}</p>
+  <div class="order" id="${orderNo}_OrderNo">
+  <p>Замовлення на суму: ${array[arrIndex].price}$</p>
+  <p>${order[1]}</p>
+  <div class="none">
+  <p>name: ${array[arrIndex].title}</p>
+  <p>${array[arrIndex].description}</p>
+  <p>rating: ${array[arrIndex].rating}</p>
+  </div>
   <button class="deleteOrder">Видалити</button>
 </div>`
 };
 
 console.log(localStorage)
 
-
-
-
 //localStorage.clear()
-//const test = [{id: 1, some: '123'}, {id: 2, some: '321'},]
-//e.target.parentElement.remove()
-
-
-/* let keys = Object.keys(localStorage);
-console.log(keys)
-for (key of keys) {
-  console.log(key)
-} */
 
 
 
 
-
-
-
-
-
-
-
-
-
+ */
 
 ///////////////////////////////////// homework 23
 

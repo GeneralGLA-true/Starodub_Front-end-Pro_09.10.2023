@@ -9,12 +9,31 @@
     margin: 10px;
     padding: 5px;
     border-radius: 5%;
+    transition: all 1s ease;
 }
 
 .order {
     border: 2px solid grey;
-    background: yellow;
+    background: #d9cf80;
     margin: 10px auto 0;
     padding: 10px;
+    border-radius: 25%;
+    transition: all 1s ease;
+    width: 550px;
 }
 
+.stuff:hover {
+    background: whitesmoke;
+    -webkit-box-shadow: 2px 5px 29px 11px rgba(0,0,0,0.63); 
+    box-shadow: 2px 5px 29px 11px rgba(0,0,0,0.63);
+}
+
+.order:hover {
+    background: white;
+    -webkit-box-shadow: 2px 5px 29px 11px rgba(0,0,0,0.63); 
+    box-shadow: 2px 5px 29px 11px rgba(0,0,0,0.63);
+}
+
+.none {
+   display: none;
+}
