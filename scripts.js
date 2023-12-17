@@ -1286,7 +1286,7 @@ asideRight.addEventListener('click', (e) => {
 //console.log(window.localStorage)
 
 
-/* ////////////////////////////////////    отсебятина + homework 24
+////////////////////////////////////    отсебятина + homework 24
 
 const body = document.querySelector('body');
 const container = document.createElement('div');
@@ -1621,7 +1621,7 @@ console.log(localStorage)
 
 
 
- */
+
 
 ///////////////////////////////////// homework 23
 
