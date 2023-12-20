@@ -1659,7 +1659,7 @@ form.addEventListener('submit',
 //////////////////////////// homework 25
 
 
-function findIndex (array, idPost){
+/* function findIndex (array, idPost){
   let index = 0;
   for (let i = 0; i < array.length; i++) {
     if (array[i].id == idPost){
@@ -1717,4 +1717,51 @@ form.addEventListener('submit', (e) => {
   fetchPosts(input.value);
   e.preventDefault();
 });
+ */
 
+
+////////////// homework 26 
+
+//q=XXX - місто, для якого показати погоду
+//temp – температура
+//pressure - тиск
+//description – опис
+//humidity – вологість 
+//speed – швидкість вітру
+//deg - напрям у градусах
+//icon - значок, де 10d код іконки
+
+const body = document.querySelector('body');
+
+async function fetchWeather (){
+
+  try {
+    const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19');
+
+    if (!response.ok){
+      throw new Error ('Холера(');
+    }
+
+    const weatherData = await response.json();
+    console.log(weatherData);
+    const template = weatherTemplate(weatherData);
+    body.innerHTML = template;
+
+  } catch (error) {
+    console.error('Помилочка(', error);
+  };
+};
+
+function weatherTemplate (obj){
+  return `
+  <p>${obj.name}</p>
+  <p>temp: ${obj.main.temp}</p>
+  <p>pressure: ${obj.main.pressure}</p>
+  <p>${obj.weather[0].description}</p>
+  <p>humidity: ${obj.main.humidity}</p>
+  <p>wind speed: ${obj.wind.speed}</p>
+  <p>wind deg: ${obj.wind.deg}</p>
+  <img src="http://openweathermap.org/img/w/10d.png" alt="weatherIcon">`
+};
+
+fetchWeather();
