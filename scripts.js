@@ -1286,7 +1286,7 @@ asideRight.addEventListener('click', (e) => {
 //console.log(window.localStorage)
 
 
-////////////////////////////////////    отсебятина + homework 24
+/* ////////////////////////////////////    отсебятина + homework 24
 
 const body = document.querySelector('body');
 const container = document.createElement('div');
@@ -1621,7 +1621,7 @@ console.log(localStorage)
 
 
 
-
+ */
 
 ///////////////////////////////////// homework 23
 
@@ -1656,11 +1656,65 @@ form.addEventListener('submit',
 
 
 
+//////////////////////////// homework 25
 
 
+function findIndex (array, idPost){
+  let index = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].id == idPost){
+      index = i;
+    }
+  }
+  return index;
+}
 
+async function fetchPosts(idPost) {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    const data = await response.json();
+    console.log(data);
+    const index = findIndex(data, idPost);
+    template = getTemplate(data[index]);
+    container.innerHTML = template;
 
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error);
+  }
+  
+}
 
+function getTemplate (obj) {
+  return `
+  <p>coment title: ${obj.title}</p>
+  <p>coment body: ${obj.body}</p>`
+}
 
+const body = document.querySelector('body');
+const input = document.createElement('input');
+const button = document.createElement('input');
+const form = document.createElement('form');
+const container = document.createElement('div');
 
+button.type = 'submit';
+button.innerText = 'Find';
+body.appendChild(form);
+body.appendChild(container);
+form.appendChild(input);
+form.appendChild(button);
+
+input.type = 'number';
+input.min = '1';
+input.max = '100';
+input.title = 'Numbers 1-100';
+
+form.addEventListener('submit', (e) => {
+  fetchPosts(input.value);
+  e.preventDefault();
+});
 
