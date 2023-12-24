@@ -1731,7 +1731,7 @@ form.addEventListener('submit', (e) => {
 //deg - напрям у градусах
 //icon - значок, де 10d код іконки
 
-const body = document.querySelector('body');
+/* const body = document.querySelector('body');
 
 async function fetchWeather (){
 
@@ -1764,4 +1764,4 @@ function weatherTemplate (obj){
   <img src="http://openweathermap.org/img/w/10d.png" alt="weatherIcon">`
 };
 
-fetchWeather();
+fetchWeather(); */
