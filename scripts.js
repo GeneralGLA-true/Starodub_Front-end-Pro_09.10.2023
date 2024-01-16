@@ -1622,6 +1622,31 @@ console.log(localStorage)
 
 
  */
+///////////////////   new 22
+
+
+/* async function getFetchData (){
+  try{
+    const response = await fetch('https://dummyjson.com/products');
+    if(!response.ok) {
+      throw new Error('Some network problem');
+    }
+
+    const data = await response.json();
+    const products = data.products;
+    console.log(products);
+    dataArray = JSON.parse(JSON.stringify(products))
+
+    return products;
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+
+getFetchData(); */
+
+
 
 ///////////////////////////////////// homework 23
 
